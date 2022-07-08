@@ -1,1 +1,137 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif !important; 
+}
+
+
+
+body{
+
+
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+  
+  ::-webkit-scrollbar {
+    width: 0.5em !important;
+    height: 0.5em !important;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    border-radius: 20px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+
+  }
+
+.navbar{
+  background:rgba(0, 0, 0, 0.089) !important;
+  backdrop-filter: blur(5px) !important;
+    
+}
+
+.offcanvas{
+    height: 100vh !important;
+}
+
+.offcanvas-header{
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+}
+
+.offcanvas-body{
+    
+
+    
+}
+
+.offcanvas-end {
+  width: 200px;
+}
+.title{
+  padding-top: 50px;
+  font-size: 4rem !important;
+}
+
+.title__second{
+  background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} 
+.fw-semibold {
+  font-weight: 500!important;
+}
+
+.container-fluid{
+  padding: 0;
+}
+
+.bg_color{
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); 
+  position: absolute;
+  top: 0;
+  
+}
+
+.btn-title{
+  font-size: 2rem !important;
+}
+
+.img-card{
+  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); 
+}
+
+.gutter-b{
+  margin-bottom: 1rem;
+}
+.mt-10{
+  margin-top: 10rem;
+ }
+ .mt-15{
+  margin-top: 15rem;
+ }
+ .mt-20{
+  margin-top: 20rem;
+ }
+ .mt-25{
+  margin-top: 25rem;
+ }
+ .mt-20{
+  margin-top: 30rem;
+ }
+ .mt-20{
+  margin-top: 30rem;
+ }
+ .mt-20{
+  margin-top: 30rem;
+ }
+ .mt-20{
+  margin-top: 30rem;
+ }
+        
+.mt-20{
+ margin-top: 30rem;
+}
+
