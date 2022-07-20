@@ -1,1 +1,71 @@
-<p>pokelist-fav works!</p>
+<body>
+    <div class="container-fluid p-5">
+        <div class="container">
+            <div  class="container  container-page" style="position: relative;">
+                <div class="row" >
+                    <div class="col-12" >
+                        <div class="d-flex justify-content-between flex-wrap">
+                            <h1 class="mb-3 fw-semibold lh-lg mt-3 font-monospace" data-aos="fade-right"><i class="bi bi-suit-heart-fill text-danger me-3"></i>Pokémons favoritos</h1>
+                            <div class="div">
+                                <button class="btn btn-danger" style="margin-top: 2.5rem;" (click)="deleteAll()">Liberar Pokémones</button>
+                            </div>
+                        </div>
+                        <div *ngIf="pokeList.length > 0 ; else notPokemons">
+
+                     
+                        <div class="py-2">
+                            <input type="text" class="form-control py-2" placeholder="Buscar Pokémon" #txtSearch (keyup)="onSearchPokemons(txtSearch.value)"/>
+                            <div class="d-flex mt-2">
+                                <button class="btn btn-white" (click)="prevPage()"><i class="bi bi-chevron-left fs-3"></i></button>
+                                <button class="btn btn-white" (click)="nextPage()" [disabled]="(pokeList | filtro:page:search).length === 0"><i class="bi bi-chevron-right fs-3"></i></button>
+                            </div>
+                        </div>
+                        <div class="card" data-aos="fade-left">
+                            <div class="table-responsive">
+                                <table class="table">
+                                 <thead>
+                                    <tr >
+                                        <th class="text-center">Secuencia</th>
+                                        <th class="px-5">No.</th>
+                                        <th class="">Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Alias</th>
+                                        <th class="text-center" style="width: 100px">Accion</th>
+                                    </tr>
+                                </thead>
+                                 <tbody>
+                                    <tr *ngFor="let pokemon of pokeList | filtro:page:search let i = index" class="align-middle">
+                                        <td class="text-center">{{i+1}}</td>
+                                        <td class="px-5">{{pokemon.id}}</td>
+                                        <td><img src="{{pokemon.pic}}" alt="" height="80" width="80"></td>
+                                        <td>{{pokemon.name}}</td>
+                                        <td >{{pokemon.alias === "" ? "N/A" : pokemon.alias }}</td>
+                                        <td>
+                                            <div class="d-flex flex-warp gap-2">
+                                                <button class="btn btn-outline-primary" (click)="viewPokemon(pokemon.id)"><i class="bi bi-eye"></i></button>
+                                                <button class="btn btn-outline-danger" (click)="deletePokemon(pokemon.id)"><i class="bi bi-trash"></i></button>
+                                                <button class="btn btn-outline-warning" (click)="editPokemon(pokemon.id)"><i class="bi bi-pencil-square text-warmimg"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                 </tbody>
+                                </table>
+                              </div>
+                         </div>
+                    </div>
+                    </div>
+                </div>
+                <ng-template #notPokemons >
+                    <div class="notPokemons">
+                        <h1 class="mt-10">No tienes Ningun pokémon</h1>
+                        <img src="https://c.tenor.com/uCoZ_h8QmV8AAAAi/angry-pikachu.gif" class="img-fluid mt-5" width="316" height="265" >
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+            <ngx-spinner template="
+            <img src='https://c.tenor.com/fSsxftCb8w0AAAAi/pikachu-running.gif'  width='110'/>
+           <div class='spinner'></div></div>">
+       </ngx-spinner>
+    </div>
+</body>

@@ -1,0 +1,44 @@
+
+
+
+   
+    <mat-dialog-content>
+        <div class="card p-0  border ">
+            <div class="card-header text-center border-0  primary-color">
+                <img src="{{pokemonCardData.pic}}" class="rounded border-0 img-card img-fluid " alt="" width="300" height="300">
+            </div>
+            <div class="card-body p-0 ">
+                <div class="row border-0 p-0 ">
+                    <div class="col-6" [ngClass]="{'col-6':pokemonCardData.alias}">
+                        <div class="mt-3">
+                            <h6 class="primary-color text-white">Nombre</h6>
+                            <h6 class="ps-1">{{pokemonCardData.name}}</h6>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mt-3" *ngIf="pokemonCardData.alias">
+                            <h6 class="primary-color text-white px-2">Alias</h6>
+                            <h6 class="px-2">{{pokemonCardData.alias}}</h6>
+                        </div>
+                    </div>
+                    <div class="col-6" [ngClass]="{'col-6':pokemonCardData.alias}">
+                        <h6 class="primary-color text-white">Tipos</h6>
+                        <ul class="list-group list-group-flush  border-0 px-2">
+                            <li *ngFor=" let hability of pokemonCardData.type let i = index" class="list-group-item border-0 p-0">{{hability.type.name}}</li>
+                        </ul>
+                    </div>
+                    <div class="col-6" [ngClass]="{'col-6':pokemonCardData.alias}">
+                        <h6 class="primary-color text-white">Habilidades</h6>
+                        <ul class="list-group list-group-flush  border-0 px-2">
+                            <li *ngFor=" let hability of pokemonCardData.habilities let i = index" class="list-group-item border-0 p-0">{{hability.ability.name}}</li>
+                        </ul>
+                    </div>
+                </div>
+
+             
+            </div>
+          
+        </div>
+       
+    </mat-dialog-content>
+ 

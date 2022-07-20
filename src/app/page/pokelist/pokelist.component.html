@@ -1,0 +1,62 @@
+<body>
+  
+    <div class="container-fluid p-5">
+        <div class="container">
+            <div class="container  container-page" style="position: relative;">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="mb-3 fw-semibold lh-lg font-monospace mt-3" data-aos="fade-right"><i class="bi bi-layout-text-sidebar text-dark"></i> Lista de Pokémones</h1>
+                        <div class="py-2">
+                            <input type="text" class="form-control py-2" placeholder="Buscar Pokémon" #txtSearch (keyup)="onSearchPokemons(txtSearch.value)"/>
+                            <div class="d-flex  mt-2">
+                                <button class="btn btn-white" (click)="prevPage()"><i class="bi bi-chevron-left fs-3"></i></button>
+                                <button class="btn btn-white" (click)="nextPage()" [disabled]="(pokeListCopy | filtro:page:search).length === 0"><i class="bi bi-chevron-right fs-3"></i></button>
+                            </div>
+                        </div>
+                        <div class="card" data-aos="fade-left">
+                            <div class="table-responsive">
+                                <table class="table">
+                                 <thead>
+                                    <tr>
+                                        <th class="px-5">No.</th>
+                                        <th>Nombre</th>
+                                        <th style="width: 100px">Accion</th>
+                                    </tr>
+                                </thead>
+                                 <tbody>
+                                    <tr *ngFor="let pokemon of pokeListCopy | filtro:page:search let i = index;" class="align-middle">
+                                        <td class="px-5">{{pokemon.id}}</td>
+                                        <td>{{pokemon.name}}</td>
+                                        <td class="">
+                                            <div class="d-flex flex-warp">
+                                                <a (click)="addFav(pokemon.id)" [ngClass]="{'disabled': pokemon.status == true}"  type="button" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Capturar al Pokémon">
+                                                <div class="pokeball2" [ngClass]="{'pokeball2-active': pokemon.status == true}">
+                                                    <div class=" pokeball__button2 "></div>
+                                                </div>
+                                            </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                 </tbody>
+                                </table>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ngx-spinner   bdColor="rgba(51,51,51,0.8)" template="
+            <img src='https://c.tenor.com/fSsxftCb8w0AAAAi/pikachu-running.gif'  width='110'/>
+           <div class='spinner'></div></div>">
+       </ngx-spinner>
+
+       <ngx-spinner name="pokeSpinner"  bdColor="rgba(51,51,51,0.8)" template="
+       <div class='pokeball_custom'>
+           <div class='pokeball__button_custom'></div>
+         </div>
+       "></ngx-spinner>
+
+   
+    </div>
+</body>

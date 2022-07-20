@@ -2,7 +2,16 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import '~ngx-toastr/toastr';
 
+html{
+  font-size: 16px;
+
+  @media screen and  (max-width: 580px){
+    
+    font-size: 10px;
+  }
+}
 
 *{
     margin: 0;
@@ -11,12 +20,11 @@
     font-family: 'Poppins', sans-serif !important; 
 }
 
-
-
 body{
-
-
+  background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%) no-repeat center center fixed;
 }
+
+
 
 ::-webkit-calendar-picker-indicator {
     filter: invert(1);
@@ -51,6 +59,9 @@ body{
     
 }
 
+.primary-color{
+  background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+}
 .offcanvas{
     height: 100vh !important;
 }
@@ -59,19 +70,25 @@ body{
     background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
 }
 
-.offcanvas-body{
-    
-
-    
+.nav-link.text-dark:hover{
+color: rgb(197, 24, 24) !important;
 }
 
 .offcanvas-end {
-  width: 200px;
+  width: 320px;
 }
 .title{
   padding-top: 50px;
-  font-size: 4rem !important;
+  font-size: 5rem !important;
 }
+
+.sub-title{
+  font-size: 2rem !important;
+}
+
+.title-card{
+  font-size: 5rem !important;
+} 
 
 .title__second{
   background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); 
@@ -86,15 +103,68 @@ body{
   padding: 0;
 }
 
+.layer{
+  display: none;
+}
+ table {
+  border: 0px solid #ccc !important;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+
+}
+
+table th {
+  padding: 1.10rem 0.5rem !important;
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
 .bg_color{
   width: 100%;
-  height: 100vh;
+  height: 850px;
   background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); 
   position: absolute;
   top: 0;
   
 }
+.bg_color-footer{
+  width: 50%;
+  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); 
+  position: absolute;
+  bottom: -1120px;
+  left: 50%;
+  height: 500px;
+}
 
+footer{
+  width: 100%;
+  position: absolute;
+  bottom: -1190px;
+ 
+}
+
+.spinner {
+  position: relative;
+  border: 4px solid rgba(0, 0, 0, .1);
+  border-left-color: yellow;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
 .btn-title{
   font-size: 2rem !important;
 }
@@ -102,6 +172,169 @@ body{
 .img-card{
   background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); 
 }
+
+.logo-poke {
+  position: relative;
+  top: -78%;
+  left: 147%;
+  transform: translate(-50%, -50%);
+}
+
+.pokeball {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  border: 5px solid #000;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: inset -10px 10px 0 10px #ccc;
+  animation: fall 0.25s ease-in-out,
+    shake 1.25s cubic-bezier(0.36, 0.07, 0.19, 0.97) 3;
+}
+
+.pokeball::before,
+.pokeball::after {
+  content: "";
+  position: absolute;
+}
+.pokeball::before {
+  background: red;
+  width: 100%;
+  height: 50%;
+}
+.pokeball::after {
+  top: calc(50% - 3px);
+  width: 100%;
+  height: 3px;
+  background: #000;
+}
+.pokeball__button {
+  position: absolute;
+  top: calc(59% - 20px);
+  left: calc(59% - 20px);
+  width: 30px;
+  height: 30px;
+  background: #7f8c8d;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 0 6px black;
+}
+
+.logo-poke2 {
+  position: absolute;
+  top: 10%;
+  left: 200%;
+  transform: translate(-50%, -50%);
+}
+
+.pokeball2 {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border: 4px solid #000;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: inset -10px 10px 0 10px #ccc;
+}
+
+.pokeball2:hover {
+  animation: fall2 1s ease-in-out,
+    shake2 0.9s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+}
+
+.pokeball2::before,
+.pokeball2::after {
+  content: "";
+  position: absolute;
+}
+.pokeball2::before {
+  background: red;
+  width: 100%;
+  height: 50%;
+}
+.pokeball2::after {
+  top: calc(50% - 3px);
+  width: 100%;
+  height: 3px;
+  background: #000;
+}
+.pokeball__button2 {
+  position: absolute;
+  top: calc(89% - 30px);
+  left: calc(63% - 17px);
+  width: 20px;
+  height: 20px;
+  background: #7f8c8d;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 0 3px black;
+}
+.pokeball2-active{
+  background: #eabe3f;
+  box-shadow: inset -10px 10px 0 10px #997d27;
+}
+
+.notPokemons {
+ height: 100vh;
+ margin: 0 auto;
+ text-align: center;
+}
+
+.disabled{
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.pokeball2-active::before {
+  background: #eabe3f;
+}
+
+.pokeball2-active:hover {
+  animation: none, shake2 0;
+}
+
+.image-responsive{
+  display: none;
+}
+@keyframes fall {
+  0% {
+    top: -200px;
+  }
+  60% {
+    top: 0;
+  }
+  80% {
+    top: -20px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes shake2 {
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+  20% {
+    transform: translate(-10px, 0) rotate(-20deg);
+  }
+  30% {
+    transform: translate(10px, 0) rotate(20deg);
+  }
+  50% {
+    transform: translate(-10px, 0) rotate(-10deg);
+  }
+  60% {
+    transform: translate(10px, 0) rotate(10deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
 
 .gutter-b{
   margin-bottom: 1rem;
@@ -130,8 +363,229 @@ body{
  .mt-20{
   margin-top: 30rem;
  }
-        
-.mt-20{
- margin-top: 30rem;
+     
+ 
+ .mb-10{
+  margin-bottom: 10rem;
+ }
+ .mb-15{
+  margin-bottom: 15rem;
+ }
+ .mb-20{
+  margin-bottom: 20rem;
+ }
+ .mb-25{
+  margin-bottom: 25rem;
+ }
+ .mb-30{
+  margin-bottom: 30rem;
+ }
+ .mb-35{
+  margin-bottom: 35rem;
+ }
+ .mb-40{
+  margin-bottom: 40rem;
+ }
+ .mb-45{
+  margin-bottom: 45rem;
+ }
+
+/* Poké Styles */
+.pokeball_custom {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  border: 10px solid #000;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: inset -10px 10px 0 10px #ccc;
+  animation: fall .25s ease-in-out,
+             shake 1.25s cubic-bezier(.36,.07,.19,.97) 3;
 }
+.pokeball_custom::before,
+.pokeball_custom::after {
+  content:"";
+  position: absolute;
+}
+.pokeball_custom::before {
+  background: red;
+  width: 100%;
+  height: 50%;
+}
+.pokeball_custom::after {
+  top: calc(50% - 10px);
+  width: 100%;
+  height: 20px;
+  background: #000;
+}
+.pokeball__button_custom {
+  position: absolute;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  width: 60px;
+  height: 60px;
+  background: #7f8c8d;
+  border: 10px solid #fff;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 0 10px black;
+  animation: blink .5s alternate 7;
+}
+/* Animation */
+@keyframes blink {
+  from { background: #eee;}
+  to { background: #e74c3c; }
+}
+@keyframes shake {
+  0% { transform: translate(0, 0) rotate(0); }
+  20% { transform: translate(-10px, 0) rotate(-20deg); }
+  30% { transform: translate(10px, 0) rotate(20deg); }
+  50% { transform: translate(-10px, 0) rotate(-10deg); }
+  60% { transform: translate(10px, 0) rotate(10deg); }
+  100% { transform: translate(0, 0) rotate(0); }
+}
+@keyframes fall {
+  0% { top: -200px }
+  60% { top: 0 }
+  80% { top: -20px }
+  100% { top: 0 }
+}
+
+
+
+//Animaciones
+.fade-in-top {
+	-webkit-animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+
+@-webkit-keyframes fade-in-top {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-top {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+//media Querys
+@media (max-width: 580px){
+  .container-fluid{
+    padding: 0px !important;
+    width: 100%;
+    
+  }
+  .container-page{
+    margin-top: 5rem !important;
+    margin-bottom: 5rem !important;
+  }
+  .container-home{
+    height: 100vh !important;
+   margin-bottom: 0px !important;
+  }
+ .image{
+ display: none;
+  
+ }
+ .image-responsive{
+  margin-top: 1rem !important;
+  width: 100% !important;
+  display: block !important;
+  z-index: 2;
+  border-radius: 50%;
+ }
+ .btn-title{
+  width: 100%;
+  
+ }
+
+ .layer{
+  display: block;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.456);
+  height: 50vh !important;
+  z-index: 1;
+  border-top-left-radius: 50% !important;
+  bottom: 40px;
+ }
+
+ .title{
+  font-size: 3rem !important;
+  font-weight: bolder !important;
+  margin-top: -2rem !important;
+ }
+ .sub-title{
+  font-size: 2rem !important;
+ }
+ .offcanvas-end{
+  width: 150px !important;
+ }
+
+ .nav-link{
+  font-size: 1.1rem!important;
+ }
+
+ .container-cards{
+  margin-top: 3rem !important;
+  
+ }
+
+ .col-md-12.col-lg-4.gutter-b{
+  width: 70% !important;
+ }
+ .title-card{
+  font-size: 2.5rem !important;
+  text-align: center !important;
+  font-weight: bolder !important;
+  text-align: start;
+  margin-top: 2rem !important;
+ }
+
+ .title-container{
+
+  margin-bottom: 5rem !important;
+ }
+
+
+ .card-title-container{
+  margin-top: 1rem !important;
+  font-size: 3rem !important;
+ }
+
+ .card-custom{
+  width: 100% !important;
+  
+ }
+ .card-custom .card-body{
+  padding: 1rem !important;
+ }
+
+ .card-image img{
+  height: 100px;
+  width: 100px;
+  border: 0px !important;
+  background: #fff !important;
+  box-shadow: 0 !important;
+ }
+}
+
 
