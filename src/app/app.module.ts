@@ -8,7 +8,7 @@ import { PokelistFavComponent } from './page/pokelist-fav/pokelist-fav.component
 import { HomeComponent } from './home/home/home.component';
 import { NavComponent } from './layout/nav/nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FooterComponent } from './layout/footer/footer.component';
+
 import {MatTableModule} from '@angular/material/table';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import {MatDialogModule} from '@angular/material/dialog';
@@ -27,7 +27,6 @@ import { InterceptorService } from './services/interceptor.service';
     PokelistFavComponent,
     HomeComponent,
     NavComponent,
-    FooterComponent,
     FavModalComponent,
     AddFavModalComponent,
     FiltroPipe
