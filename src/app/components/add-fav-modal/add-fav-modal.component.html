@@ -1,16 +1,16 @@
-    
-        <mat-dialog-content class="p-4">
-        <h2 mat-dialog-title >{{id.title === 0? "Agrega un Alias a tu Pokémon": "Edita el Alias del Pokémon"}}</h2>
+        <h2 mat-dialog-title class="text-center">
+          <span class="title-modal">{{id.title === 0? "Add an Alias to your Pokémon": "Edit the Alias of the Pokémon"}}</span>
+        </h2>
+        <mat-dialog-content class="p-1">
         <div class="mb-3 px-4">
             <label  class="form-label">Alias</label>
             <input type="email" class="form-control" name="alias" aria-describedby="alias" [(ngModel)]="alias">
-            <div id="emailHelp" class="form-text text-muted">{{id.title === 0? "Los alias no son obligatorios.": "edita el alias "}}</div>
+            <div id="emailHelp" class="form-text text-muted">{{id.title === 0? "No aliases required.": "edit aliases"}}</div>
         </div>   
         </mat-dialog-content>
         <mat-dialog-actions class="d-flex justify-content-end">
-          <button mat-button mat-dialog-close class="btn btn-success m-2" (click)="addFav()">Agregar</button>
+          <button mat-button mat-dialog-close class="btn btn-success m-2" (click)="addFav()">{{id.title === 0? "Add":"Edit"}}</button>
           <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
-          <button mat-button [mat-dialog-close]="true" class="btn btn-secondary">Cancelar</button>
-          
+          <button mat-button [mat-dialog-close]="true" class="btn btn-secondary">Cancel</button>
         </mat-dialog-actions>
 

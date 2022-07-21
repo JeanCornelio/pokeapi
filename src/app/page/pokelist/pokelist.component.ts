@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import * as AOS from 'aos';
 import { AddFavModalComponent } from 'src/app/components/add-fav-modal/add-fav-modal.component';
@@ -77,12 +77,12 @@ onSearchPokemons(search:string){
 }
 
 nextPage(){
-  this.page +=8;
+  this.page +=10;
 }
 
 prevPage(){
   if(this.page > 0){
-    this.page -=8;
+    this.page -=10;
   }
 }
 }

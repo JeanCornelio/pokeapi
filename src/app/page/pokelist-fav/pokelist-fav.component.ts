@@ -5,6 +5,7 @@ import { FavModalComponent } from 'src/app/components/fav-modal/fav-modal.compon
 import { MatDialog } from '@angular/material/dialog';
 import { AddFavModalComponent } from 'src/app/components/add-fav-modal/add-fav-modal.component';
 import Swal from 'sweetalert2';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-pokelist-fav',
   templateUrl: './pokelist-fav.component.html',
@@ -14,7 +15,8 @@ export class PokelistFavComponent implements OnInit {
  
 
   constructor( public pokeListFav: DataSourceService,
-               public dialog: MatDialog,) { }
+               public dialog: MatDialog,
+               public toast: ToastrService) { }
   pokeList: any;
   page: number = 0;
   search: string ="";
@@ -39,18 +41,19 @@ export class PokelistFavComponent implements OnInit {
 
 deletePokemon(id:number){
   Swal.fire({
-    title: 'Quieres Liberar el Pokémon?',
-    confirmButtonText: 'Aceptar',
+    title: 'Do you want to release the Pokémon?',
+    confirmButtonText: 'Accept',
     confirmButtonColor: 'red',
     imageUrl: '/assets/img/pika.gif',
     imageHeight: 100,
     showDenyButton: true,
-    denyButtonText: `Cancelar`,
+    denyButtonText: `Cancel`,
     denyButtonColor: 'gray',
   }).then((res) => {
     if (res.isConfirmed) {
       this.pokeListFav.deletePokemonListFav(id)
         this.getData()
+        this.toast.success("pokémon released")
     } else {
       return;
     }
@@ -69,18 +72,19 @@ editPokemon(id:number){
 
 deleteAll(){
   Swal.fire({
-    title: ' Quieres Liberar Todos Pokémon?',
-    confirmButtonText: 'Aceptar',
+    title: ' Do you want to release all Pokémon?',
+    confirmButtonText: 'Acept',
     confirmButtonColor: 'red',
     imageUrl: '/assets/img/allpokemons.gif',
     imageHeight: 100,
     showDenyButton: true,
-    denyButtonText: `Cancelar`,
+    denyButtonText: `Cancel`,
     denyButtonColor: 'gray',
   }).then((res) => {
     if (res.isConfirmed) {
       this.pokeListFav.deleteAll()
         this.getData()
+        this.toast.success("all pokémon released")
     } else {
       return;
     }

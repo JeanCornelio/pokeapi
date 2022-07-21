@@ -5,32 +5,34 @@
             <div class="container  container-page" style="position: relative;">
                 <div class="row">
                     <div class="col-12">
-                        <h1 class="mb-3 fw-semibold lh-lg font-monospace mt-3" data-aos="fade-right"><i class="bi bi-layout-text-sidebar text-dark"></i> Lista de Pokémones</h1>
+                        <h1 class="mb-3 fw-semibold lh-lg font-monospace mt-3 " data-aos="fade-right"><i class="bi bi-layout-text-sidebar text-dark me-3"></i>Pokémons List</h1>
                         <div class="py-2">
-                            <input type="text" class="form-control py-2" placeholder="Buscar Pokémon" #txtSearch (keyup)="onSearchPokemons(txtSearch.value)"/>
-                            <div class="d-flex  mt-2">
-                                <button class="btn btn-white" (click)="prevPage()"><i class="bi bi-chevron-left fs-3"></i></button>
-                                <button class="btn btn-white" (click)="nextPage()" [disabled]="(pokeListCopy | filtro:page:search).length === 0"><i class="bi bi-chevron-right fs-3"></i></button>
+                            <input type="text" class="form-control py-2" placeholder="search Pokémon" #txtSearch (keyup)="onSearchPokemons(txtSearch.value)"/>
+                             <div class="d-flex mt-2">
+                                <button class="btn btn-white" (click)="prevPage()" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="previous" ><i class="bi bi-chevron-left fs-3"></i></button>
+                                <button class="btn btn-white" (click)="nextPage() "data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Next" [disabled]="(pokeListCopy | filtro:page:search).length === 0"><i class="bi bi-chevron-right fs-3"></i></button>
                             </div>
                         </div>
-                        <div class="card" data-aos="fade-left">
+                        <div class="card" data-aos="fade-left" *ngIf="(pokeListCopy | filtro:page:search).length > 0 ; else notPokemons">
                             <div class="table-responsive">
                                 <table class="table">
                                  <thead>
                                     <tr>
                                         <th class="px-5">No.</th>
-                                        <th>Nombre</th>
-                                        <th style="width: 100px">Accion</th>
+                                        <th>Name</th>
+                                        <th style="width: 100px">Action</th>
                                     </tr>
                                 </thead>
                                  <tbody>
                                     <tr *ngFor="let pokemon of pokeListCopy | filtro:page:search let i = index;" class="align-middle">
                                         <td class="px-5">{{pokemon.id}}</td>
                                         <td>{{pokemon.name}}</td>
-                                        <td class="">
+                                        <td class="ps-3">
                                             <div class="d-flex flex-warp">
                                                 <a (click)="addFav(pokemon.id)" [ngClass]="{'disabled': pokemon.status == true}"  type="button" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                    title="Capturar al Pokémon">
+                                                    title="catch Pokémon">
                                                 <div class="pokeball2" [ngClass]="{'pokeball2-active': pokemon.status == true}">
                                                     <div class=" pokeball__button2 "></div>
                                                 </div>
@@ -42,6 +44,12 @@
                                 </table>
                               </div>
                         </div>
+                        <ng-template #notPokemons >
+                            <div class="notPokemons">
+                                <h1 class="mt-10">No existen mas Pokémones</h1>
+                                <img src="https://c.tenor.com/uCoZ_h8QmV8AAAAi/angry-pikachu.gif" class="img-fluid mt-5" width="316" height="265" >
+                            </div>
+                        </ng-template>
                     </div>
                 </div>
             </div>
@@ -56,7 +64,5 @@
            <div class='pokeball__button_custom'></div>
          </div>
        "></ngx-spinner>
-
-   
     </div>
 </body>

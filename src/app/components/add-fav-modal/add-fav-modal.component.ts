@@ -21,7 +21,7 @@ export class AddFavModalComponent implements OnInit {
   pokemon:any=[];
   pokeSpinner:string = "pokeSpinner";
   ngOnInit(): void {
-    this.getData()
+   this.getData()
    this.aliasName()
   }
 
@@ -63,7 +63,7 @@ aliasName(){
        this.spinner.show(this.pokeSpinner);
        setTimeout(() => {
         this.spinner.hide(this.pokeSpinner);
-        this.toast.success("Pokemon Capturado");
+        this.toast.success("caught Pokémon ");
       }, 4000);
  
        this.pokemonsService.setLocalStorage(pokeFav);
@@ -82,7 +82,7 @@ aliasName(){
        }
        this.pokemonsService.editPokemonListFav(pokeFavEdit);
 
-       this.toast.success("Alias Modificado Correctamente")
+       this.toast.warning("Edited alias")
     }
 
     }  
