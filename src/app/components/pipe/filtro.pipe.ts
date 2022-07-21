@@ -11,7 +11,7 @@ export class FiltroPipe implements PipeTransform {
     if(search.length === 0){
       return pokemons.slice(page, page +10)
     }
-    const filterdPokemons = pokemons.filter(poke => poke.name.includes(search))
+    const filterdPokemons = pokemons.filter(poke => poke.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
     return filterdPokemons.slice(page,page + 10);
   }
 

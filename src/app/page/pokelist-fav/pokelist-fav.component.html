@@ -4,10 +4,14 @@
             <div  class="container  container-page" style="position: relative;">
                 <div class="row" >
                     <div class="col-12" >
-                        <div class="d-flex justify-content-between flex-wrap">
-                            <h1 class="mb-3 fw-semibold lh-lg mt-3 font-monospace" data-aos="fade-right"><i class="bi bi-suit-heart-fill text-danger me-3"></i>Pokémons favorites</h1>
-                            <div class="div">
-                                <button class="btn btn-danger" style="margin-top: 2.5rem;" (click)="deleteAll()"> <i class="bi bi-check2-all me-2"></i>Release Pokémones</button>
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-6">
+                                <h1 class="mb-3 fw-semibold lh-lg mt-3 font-monospace" data-aos="fade-right"><i class="bi bi-suit-heart-fill text-danger me-3"></i>Pokémons favorites</h1>
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="div">
+                                    <button class="btn btn-danger" style="margin-top: 2.5rem;" (click)="deleteAll()"> <i class="bi bi-check2-all me-2"></i>Release Pokémones</button>
+                                </div>
                             </div>
                         </div>
                         <div *ngIf="pokeList.length > 0 ; else notPokemons">
